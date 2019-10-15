@@ -18,9 +18,16 @@ package dev.game;
  * @author SHEHAN
  */
 import gamerpg.canvas;
+import image.loader.SpriteSheet;
+import static image.loader.gfx.loadImage;
 import java.awt.Canvas;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
+import image.loader.SpriteSheet;
+import image.loader.gfx;
+import java.io.File;
+import javax.imageio.ImageIO;
 import window.window;
 
 public class westernRPG implements Runnable{
@@ -37,6 +44,13 @@ public class westernRPG implements Runnable{
     private BufferStrategy bs;
     private Graphics graphic;
     
+    private gfx imageLoader;
+    
+    private BufferedImage img = null;
+    
+    private SpriteSheet sheet;
+    
+    
     public westernRPG(String title,int width,int height){
         this.title = title;
         this.width = width;
@@ -44,29 +58,42 @@ public class westernRPG implements Runnable{
         
     }
     
-    public void createWindow(){
+    private void createWindow(){
         display.createWindow();
     }
 
-    public void init(){
+    private void init(){
         display = new window(this.title,this.width,this.height);
         canvas = new canvas(this.width,this.height);
         
-                
-    }
-    
-    public void tick(){
+        try{
+        img =  ImageIO.read(new File("./res/app.png"));
+        } catch(Exception e){
+            e.printStackTrace();
+            System.exit(1);
+        } 
+        
+        sheet = new SpriteSheet(img);
         
     }
     
-    public void render(){
-        bs = canvas.getCanvas().getBufferStrategy();
+    private void tick(){
+        
+    }
+    
+    private void render(){
+        bs = display.getCanvas().getBufferStrategy();
         if (bs == null){
-            canvas.getCanvas().createBufferStrategy(3);
+            display.getCanvas().createBufferStrategy(3);
             return;
         }
         graphic = bs.getDrawGraphics();
         graphic.fillRect(0, 0, this.width, this.height);
+        
+        //graphic.clearRect(0,0,this.width,this.height);
+        
+        graphic.drawImage(sheet.crop(0,0,100,100), 200, 200, null);
+        
         
         bs.show();
         graphic.dispose();

@@ -4,9 +4,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/projects/datastructures%20and%20algorithms/dsaa/StaticAndDynamicArrays/gameRPG/gameRPG/src/gamerpg/GameRPG.java</file>
-            <file>file:/D:/projects/datastructures%20and%20algorithms/dsaa/StaticAndDynamicArrays/gameRPG/gameRPG/src/image/loader/spriteSheet.java</file>
+            <file>file:/D:/projects/datastructures%20and%20algorithms/dsaa/StaticAndDynamicArrays/gameRPG/gameRPG/src/dev/game/westernRPG.java</file>
             <file>file:/D:/projects/datastructures%20and%20algorithms/dsaa/StaticAndDynamicArrays/gameRPG/gameRPG/src/window/window.java</file>
             <file>file:/D:/projects/datastructures%20and%20algorithms/dsaa/StaticAndDynamicArrays/gameRPG/gameRPG/src/gamerpg/canvas.java</file>
+            <file>file:/D:/projects/datastructures%20and%20algorithms/dsaa/StaticAndDynamicArrays/gameRPG/gameRPG/src/image/loader/SpriteSheet.java</file>
             <file>file:/D:/projects/datastructures%20and%20algorithms/dsaa/StaticAndDynamicArrays/gameRPG/gameRPG/src/image/loader/gfx.java</file>
         </group>
     </open-files>
