@@ -18,16 +18,11 @@ package dev.game;
  * @author SHEHAN
  */
 import gamerpg.canvas;
-import image.loader.SpriteSheet;
-import static image.loader.gfx.loadImage;
+import image.loader.Asserts;
 import java.awt.Canvas;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
-import image.loader.SpriteSheet;
-import image.loader.gfx;
-import java.io.File;
-import javax.imageio.ImageIO;
 import window.window;
 
 public class westernRPG implements Runnable{
@@ -42,14 +37,9 @@ public class westernRPG implements Runnable{
     private canvas canvas;
     
     private BufferStrategy bs;
-    private Graphics graphic;
+    private Graphics graphic;  
     
-    private gfx imageLoader;
-    
-    private BufferedImage img = null;
-    
-    private SpriteSheet sheet;
-    
+    private BufferedImage walk;
     
     public westernRPG(String title,int width,int height){
         this.title = title;
@@ -62,23 +52,18 @@ public class westernRPG implements Runnable{
         display.createWindow();
     }
 
-    private void init(){
+    private void init() {
         display = new window(this.title,this.width,this.height);
         canvas = new canvas(this.width,this.height);
         
-        try{
-        img =  ImageIO.read(new File("./res/app.png"));
-        } catch(Exception e){
-            e.printStackTrace();
-            System.exit(1);
-        } 
-        
-        sheet = new SpriteSheet(img);
+        Asserts.init();
+        Asserts.Loadassert();
+        walk = Asserts.walk;
         
     }
-    
+    int x = 0;
     private void tick(){
-        
+        x += 1;
     }
     
     private void render(){
@@ -92,21 +77,47 @@ public class westernRPG implements Runnable{
         
         //graphic.clearRect(0,0,this.width,this.height);
         
-        graphic.drawImage(sheet.crop(0,0,100,100), 200, 200, null);
+        graphic.drawImage(walk, x, 100, (int) 100, (int) 100, null);
         
         
         bs.show();
         graphic.dispose();
     }
     
-    //@Override
+    @Override
     public void run() {
 
         init();
         
+        int fps = 60;
+        double timePerTick = 1000000000 / fps;
+        double delta = 0;
+        long now;
+        long timer = 0;
+        int ticks = 0;
+        long lastTime = System.nanoTime();
+        
         while (running){
-            tick();
-            render();
+            now = System.nanoTime();
+            delta += (now - lastTime) / timePerTick;
+            timer += now - lastTime;
+            lastTime = now;
+            
+            
+            if (delta >= 1){
+                tick();
+                ticks++;
+                render();
+                delta--;
+            }
+            
+            /*if (timer >= 1000000000){
+                System.out.println("Ticks and Frames: " + ticks);
+                ticks = 0;
+                timer = 0;
+                
+            }*/
+            
         }
         
         stop();
