@@ -38,7 +38,7 @@ public class Asserts {
     
     public static void Loadassert(){
         sheet = new SpriteSheet(img);
-        walk = sheet.crop(0,0,100,100);
+        walk = sheet.crop(0,0,200,200);
         
     }
 }

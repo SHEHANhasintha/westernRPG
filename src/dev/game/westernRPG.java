@@ -17,6 +17,8 @@ package dev.game;
  *
  * @author SHEHAN
  */
+import dev.Rpg.game.State;
+import dev.Rpg.game.gameState;
 import gamerpg.canvas;
 import image.loader.Asserts;
 import java.awt.Canvas;
@@ -41,6 +43,8 @@ public class westernRPG implements Runnable{
     
     private BufferedImage walk;
     
+    private State gameState;
+    
     public westernRPG(String title,int width,int height){
         this.title = title;
         this.width = width;
@@ -60,10 +64,15 @@ public class westernRPG implements Runnable{
         Asserts.Loadassert();
         walk = Asserts.walk;
         
+        gameState = new gameState();
+        State.setState(gameState);
     }
+    
     int x = 0;
     private void tick(){
-        x += 1;
+        if (State.getState() != null){
+            State.getState().tick();
+        }
     }
     
     private void render(){
@@ -77,8 +86,12 @@ public class westernRPG implements Runnable{
         
         //graphic.clearRect(0,0,this.width,this.height);
         
-        graphic.drawImage(walk, x, 100, (int) 100, (int) 100, null);
+       // graphic.drawImage(walk, x, 100, (int) 100, (int) 100, null);
         
+        
+        if (State.getState() != null){
+            State.getState().render(graphic);
+        }
         
         bs.show();
         graphic.dispose();
