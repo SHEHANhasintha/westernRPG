@@ -48,6 +48,10 @@ public class window {
         return canvas.canvas;
     }
     
+    public JFrame getJframe(){
+        return frame;
+    }
+    
     
 }
 

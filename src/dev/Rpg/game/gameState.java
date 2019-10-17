@@ -5,6 +5,10 @@
  */
 package dev.Rpg.game;
 
+import dev.Rpg.World;
+import dev.entities.Player;
+import dev.env.Tile;
+import dev.game.westernRPG;
 import static image.loader.Asserts.walk;
 import java.awt.Graphics;
 
@@ -21,21 +25,28 @@ import java.awt.Graphics;
  * @author SHEHAN
  */
 public class gameState extends State {
-    
-    public gameState(){
-    
+    Player player;
+    World world;
+    public gameState(westernRPG game){
+        super(game);
+        player = new Player(game,100,100);
+        world = new World("");
     }
 
     //int x =0;
     @Override
     public void tick() {
-        //x += 1;
+        world.tick();
+        player.tick();
+        
     }
 
     @Override
     public void render(Graphics graphic) {
-        
-        graphic.drawImage(walk, 0, 100, (int) 100, (int) 100, null);
+        world.render(graphic);
+        player.render(graphic);
+        //Tile.tiles[0].render(graphic, 0 , 0);
+        //graphic.drawImage(walk, 0, 100, (int) 100, (int) 100, null);
 
     }
     

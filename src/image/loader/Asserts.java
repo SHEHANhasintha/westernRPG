@@ -23,13 +23,18 @@ import java.util.logging.Logger;
  * @author SHEHAN
  */
 public class Asserts {
-    private static BufferedImage img;
+    private static BufferedImage imgCharacter;
+    private static BufferedImage imgEnviroment;
     public static BufferedImage walk;
-    public static SpriteSheet sheet;
+    public static BufferedImage dirt1;
+    public static BufferedImage skeletonHead1;
+    private static SpriteSheet sheet1;
+    private static SpriteSheet sheet2;
     
     public static void init(){
         try {
-            img = gfx.loadImage("./res/spritesheet.png");
+            imgCharacter = gfx.loadImage("./res/spritesheet.png");
+            imgEnviroment = gfx.loadImage("./res/spritesheetEnviroment.png");
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -37,8 +42,10 @@ public class Asserts {
     }
     
     public static void Loadassert(){
-        sheet = new SpriteSheet(img);
-        walk = sheet.crop(0,0,200,200);
-        
+        sheet1 = new SpriteSheet(imgCharacter);
+        sheet2 = new SpriteSheet(imgEnviroment);
+        walk = sheet1.crop(0,0,200,200);
+        dirt1 = sheet2.crop(270,0,130,130);
+        skeletonHead1 = sheet2.crop(205,0,200,200);
     }
 }

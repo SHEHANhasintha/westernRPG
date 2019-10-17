@@ -5,6 +5,7 @@
  */
 package dev.Rpg.game;
 
+import dev.game.westernRPG;
 import java.awt.Graphics;
 
 /**
@@ -13,6 +14,10 @@ import java.awt.Graphics;
  */
 public class MenuState extends State{
 
+    public MenuState(westernRPG game){
+        super(game);
+    }
+    
     @Override
     public void tick() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

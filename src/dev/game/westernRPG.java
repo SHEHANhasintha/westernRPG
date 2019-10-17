@@ -17,6 +17,8 @@ package dev.game;
  *
  * @author SHEHAN
  */
+import dev.Rpg.game.KeyManager;
+import dev.Rpg.game.MenuState;
 import dev.Rpg.game.State;
 import dev.Rpg.game.gameState;
 import gamerpg.canvas;
@@ -44,12 +46,18 @@ public class westernRPG implements Runnable{
     private BufferedImage walk;
     
     private State gameState;
+    private State menuState;
+    
+    private KeyManager keyManager;
     
     public westernRPG(String title,int width,int height){
         this.title = title;
         this.width = width;
         this.height = height;
-        
+
+        keyManager = new KeyManager();
+        canvas = new canvas(this.width,this.height);
+
     }
     
     private void createWindow(){
@@ -58,18 +66,22 @@ public class westernRPG implements Runnable{
 
     private void init() {
         display = new window(this.title,this.width,this.height);
-        canvas = new canvas(this.width,this.height);
         
         Asserts.init();
         Asserts.Loadassert();
         walk = Asserts.walk;
         
-        gameState = new gameState();
+        gameState = new gameState(this);
+        menuState = new MenuState(this);
         State.setState(gameState);
+        
+        display.getJframe().addKeyListener(keyManager);
     }
     
     int x = 0;
     private void tick(){
+        keyManager.tick();
+        
         if (State.getState() != null){
             State.getState().tick();
         }
@@ -135,6 +147,10 @@ public class westernRPG implements Runnable{
         
         stop();
         
+    }
+    
+    public KeyManager getKeyManager(){
+        return keyManager;
     }
     
     public synchronized void start(){
