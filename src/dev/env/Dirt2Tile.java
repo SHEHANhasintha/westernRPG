@@ -15,7 +15,7 @@ import java.awt.image.BufferedImage;
 public class Dirt2Tile extends Tile{
     
     public Dirt2Tile(int id){
-        super(Asserts.dirt1,id);
+        super(Asserts.dirt2,id);
         
     }
     

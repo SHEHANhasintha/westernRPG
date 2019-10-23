@@ -27,6 +27,9 @@ public class Asserts {
     private static BufferedImage imgEnviroment;
     public static BufferedImage walk;
     public static BufferedImage dirt1;
+    public static BufferedImage dirt2;
+    public static BufferedImage dirt3;
+    public static BufferedImage dirt4;
     public static BufferedImage skeletonHead1;
     private static SpriteSheet sheet1;
     private static SpriteSheet sheet2;
@@ -46,6 +49,9 @@ public class Asserts {
         sheet2 = new SpriteSheet(imgEnviroment);
         walk = sheet1.crop(0,0,200,200);
         dirt1 = sheet2.crop(270,0,130,130);
+        dirt2 = sheet2.crop(0,270,130,130);
+        dirt3 = sheet2.crop(130,270,130,130);
+        dirt4 = sheet2.crop(130 * 3,130,130,130);
         skeletonHead1 = sheet2.crop(205,0,200,200);
     }
 }

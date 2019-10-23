@@ -5,6 +5,7 @@
  */
 package dev.Rpg.game;
 
+import dev.game.Handler;
 import dev.game.westernRPG;
 import java.awt.Graphics;
 
@@ -19,10 +20,12 @@ import java.awt.Graphics;
 public abstract class State {
 
     public static State currentState = null;
-    protected westernRPG game;
     
-    public State(westernRPG game){
-        this.game = game;
+    //CLASS
+    protected Handler handler;
+    
+    public State(Handler handler){
+        this.handler = handler;
     }
     
     public static void setState(State state){

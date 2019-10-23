@@ -3,12 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/D:/projects/datastructures%20and%20algorithms/dsaa/StaticAndDynamicArrays/gameRPG/gameRPG/src/dev/utils/util.java</file>
+            <file>file:/D:/projects/datastructures%20and%20algorithms/dsaa/StaticAndDynamicArrays/gameRPG/gameRPG/src/dev/entities/Player.java</file>
             <file>file:/D:/projects/datastructures%20and%20algorithms/dsaa/StaticAndDynamicArrays/gameRPG/gameRPG/src/gamerpg/GameRPG.java</file>
+            <file>file:/D:/projects/datastructures%20and%20algorithms/dsaa/StaticAndDynamicArrays/gameRPG/gameRPG/src/image/loader/GameCamara.java</file>
+            <file>file:/D:/projects/datastructures%20and%20algorithms/dsaa/StaticAndDynamicArrays/gameRPG/gameRPG/src/dev/entities/Entities.java</file>
             <file>file:/D:/projects/datastructures%20and%20algorithms/dsaa/StaticAndDynamicArrays/gameRPG/gameRPG/src/dev/game/westernRPG.java</file>
-            <file>file:/D:/projects/datastructures%20and%20algorithms/dsaa/StaticAndDynamicArrays/gameRPG/gameRPG/src/window/window.java</file>
-            <file>file:/D:/projects/datastructures%20and%20algorithms/dsaa/StaticAndDynamicArrays/gameRPG/gameRPG/src/gamerpg/canvas.java</file>
+            <file>file:/D:/projects/datastructures%20and%20algorithms/dsaa/StaticAndDynamicArrays/gameRPG/gameRPG/src/dev/entities/Creatures.java</file>
+            <file>file:/D:/projects/datastructures%20and%20algorithms/dsaa/StaticAndDynamicArrays/gameRPG/gameRPG/src/dev/Rpg/World.java</file>
+            <file>file:/D:/projects/datastructures%20and%20algorithms/dsaa/StaticAndDynamicArrays/gameRPG/gameRPG/src/dev/Rpg/game/gameState.java</file>
             <file>file:/D:/projects/datastructures%20and%20algorithms/dsaa/StaticAndDynamicArrays/gameRPG/gameRPG/src/image/loader/SpriteSheet.java</file>
-            <file>file:/D:/projects/datastructures%20and%20algorithms/dsaa/StaticAndDynamicArrays/gameRPG/gameRPG/src/image/loader/gfx.java</file>
+            <file>file:/D:/projects/datastructures%20and%20algorithms/dsaa/StaticAndDynamicArrays/gameRPG/gameRPG/res/worlds/world1.txt</file>
         </group>
     </open-files>
 </project-private>

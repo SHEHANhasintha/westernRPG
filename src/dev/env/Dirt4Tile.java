@@ -12,16 +12,16 @@ import java.awt.image.BufferedImage;
  *
  * @author SHEHAN
  */
-public class Dirt1Tile extends Tile{
+public class Dirt4Tile extends Tile{
     
-    public Dirt1Tile(int id){
-        super(Asserts.dirt1,id);
+    public Dirt4Tile(int id){
+        super(Asserts.dirt4,id);
         
     }
     
     @Override
     public boolean isSolid(){
-        return false;
+        return true;
     }
     
     

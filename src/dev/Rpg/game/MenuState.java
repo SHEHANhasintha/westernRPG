@@ -5,6 +5,7 @@
  */
 package dev.Rpg.game;
 
+import dev.game.Handler;
 import dev.game.westernRPG;
 import java.awt.Graphics;
 
@@ -14,8 +15,8 @@ import java.awt.Graphics;
  */
 public class MenuState extends State{
 
-    public MenuState(westernRPG game){
-        super(game);
+    public MenuState(Handler handler){
+        super(handler);
     }
     
     @Override

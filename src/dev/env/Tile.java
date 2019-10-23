@@ -27,7 +27,8 @@ public class Tile {
     public static Tile Dirt1Tile = new Dirt1Tile(0); 
     public static Tile Dirt2Tile = new Dirt2Tile(1); 
     public static Tile Dirt3Tile = new Dirt3Tile(2); 
-    public static Tile skeletonHead = new SkeletonHead(3); 
+    public static Tile Dirt4Tile = new Dirt4Tile(3); 
+    public static Tile skeletonHead = new SkeletonHead(4); 
     
     
     //CLASS

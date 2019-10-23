@@ -21,8 +21,10 @@
 
 package dev.entities;
 
+import dev.game.Handler;
 import dev.game.westernRPG;
 import image.loader.Asserts;
+import java.awt.Color;
 import java.awt.Graphics;
 
 /**
@@ -30,22 +32,26 @@ import java.awt.Graphics;
  * @author SHEHAN
  */
 public class Player extends Creatures{
-    private westernRPG game;
-    public Player(westernRPG game,float x, float y){
-        super(x,y,Creatures.DEFAULT_CREATURE_WIDTH,Creatures.DEFAULT_CREATURE_HEIGHT);
-        this.game = game;
+    public Player(Handler handler,float x, float y){
+        super(handler,x,y,Creatures.DEFAULT_CREATURE_WIDTH,Creatures.DEFAULT_CREATURE_HEIGHT);
+        
+        bounds.x = 16;
+        bounds.y = 32;
+        bounds.width = 32;
+        bounds.height = 32;
+        
     }
     
     public void Input(){
         xMove = 0;
         yMove = 0;
-        if (this.game.getKeyManager().up)
+        if (this.handler.getKeyManager().up)
             yMove -= speed;
-        if (this.game.getKeyManager().down)
+        if (this.handler.getKeyManager().down)
             yMove += speed;
-        if (this.game.getKeyManager().left)
+        if (this.handler.getKeyManager().left)
             xMove -= speed;
-        if (this.game.getKeyManager().right)
+        if (this.handler.getKeyManager().right)
             xMove += speed;
     }
 
@@ -53,15 +59,19 @@ public class Player extends Creatures{
     
     @Override
     public void tick() {
-
         Input();
         move();
-        //x += 1;
+        handler.getGameCamara().centerOnEntity(this);
     }
 
     @Override
     public void render(Graphics graphic) {
-        graphic.drawImage(Asserts.walk, (int) x, (int) y, width, height, null);
+        graphic.drawImage(Asserts.walk, (int) (x - handler.getGameCamara().getXOffset()), (int) (y - handler.getGameCamara().getYOffset()), width, height, null);
+        
+        graphic.setColor(Color.red);
+        graphic.fillRect((int) (x + bounds.x - handler.getGameCamara().getXOffset()), 
+                (int) (y + bounds.y - handler.getGameCamara().getYOffset()), bounds.width, bounds.height);
+    
     }
     
     

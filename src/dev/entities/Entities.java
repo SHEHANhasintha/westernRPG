@@ -5,7 +5,10 @@
  */
 package dev.entities;
 
+import dev.game.Handler;
+import dev.game.westernRPG;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
 
 
@@ -21,14 +24,20 @@ import java.awt.Graphics;
  * @author SHEHAN
  */
 public abstract class Entities {
+    protected Handler handler;
     protected float x,y;
     protected int width,height;
     
-    public Entities(float x,float y,int width,int height){
+    protected Rectangle bounds;
+    
+    public Entities(Handler handler,float x,float y,int width,int height){
+        this.handler = handler;
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
+        
+        bounds = new Rectangle(0,0,width,height);
     }
     
     public float getWidth(){

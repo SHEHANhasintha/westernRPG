@@ -8,6 +8,7 @@ package dev.Rpg.game;
 import dev.Rpg.World;
 import dev.entities.Player;
 import dev.env.Tile;
+import dev.game.Handler;
 import dev.game.westernRPG;
 import static image.loader.Asserts.walk;
 import java.awt.Graphics;
@@ -27,10 +28,13 @@ import java.awt.Graphics;
 public class gameState extends State {
     Player player;
     World world;
-    public gameState(westernRPG game){
-        super(game);
-        player = new Player(game,100,100);
-        world = new World("");
+    public gameState(Handler handler){
+        super(handler);
+        world = new World(handler,"./res/worlds/world1.txt");
+        handler.setWorld(world);
+        player = new Player(handler,100,100);
+        
+        handler.getGameCamara().move(100,200);
     }
 
     //int x =0;

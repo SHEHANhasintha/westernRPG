@@ -23,6 +23,7 @@ import dev.Rpg.game.State;
 import dev.Rpg.game.gameState;
 import gamerpg.canvas;
 import image.loader.Asserts;
+import image.loader.GameCamara;
 import java.awt.Canvas;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
@@ -50,10 +51,15 @@ public class westernRPG implements Runnable{
     
     private KeyManager keyManager;
     
+    private GameCamara gameCamara;
+    
+    private Handler handler;
+    
     public westernRPG(String title,int width,int height){
         this.title = title;
         this.width = width;
         this.height = height;
+        
 
         keyManager = new KeyManager();
         canvas = new canvas(this.width,this.height);
@@ -71,9 +77,16 @@ public class westernRPG implements Runnable{
         Asserts.Loadassert();
         walk = Asserts.walk;
         
-        gameState = new gameState(this);
-        menuState = new MenuState(this);
+        gameCamara = new GameCamara(this,0,0);
+        
+        handler = new Handler(this);
+
+        
+        gameState = new gameState(handler);
+        menuState = new MenuState(handler);
         State.setState(gameState);
+        
+        
         
         display.getJframe().addKeyListener(keyManager);
     }
@@ -151,6 +164,24 @@ public class westernRPG implements Runnable{
     
     public KeyManager getKeyManager(){
         return keyManager;
+    }
+    
+    public int getWidth(){
+        return width;
+    }
+    public void setWidth(int width){
+        this.width = width;
+    }
+    
+    public int getHeight(){
+        return width;
+    }
+    public void setHeight(int height){
+        this.height = height;
+    }
+    
+    public GameCamara getGameCamara(){
+        return gameCamara;
     }
     
     public synchronized void start(){
